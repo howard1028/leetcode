@@ -9,12 +9,12 @@ class Solution:
             index = int((left+right)/2)
             if target>nums[index]:
                 left = index+1
-                print(index)
+                # print(index)
             elif target<nums[index]:
                 right = index-1
-                print(index)
+                # print(index)
             elif target==nums[index]:
                 return index
-                print(index)
+                # print(index)
         return -1
             
