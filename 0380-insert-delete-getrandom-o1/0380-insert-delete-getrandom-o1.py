@@ -3,18 +3,18 @@ import random
 class RandomizedSet:
 
     def __init__(self):
-        self.d = set() # 紀錄[插入的數字,index]
+        self.d = defaultdict(int) # 紀錄[插入的數字,index]
 
     def insert(self, val: int) -> bool:
         if val not in self.d:
-            self.d.add(val)
+            self.d[val] = len(self.d)
             return True
         else:
             return False
 
     def remove(self, val: int) -> bool:
         if val in self.d:
-            self.d.remove(val)
+            del self.d[val]
             return True
         else:
             return False
