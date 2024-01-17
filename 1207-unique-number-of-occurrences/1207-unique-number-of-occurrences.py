@@ -4,8 +4,8 @@ class Solution:
         count2 = defaultdict() # 出現次數出現的次數
         for num in arr:
             count[num] = count.get(num , 0) + 1
-        print(set(count))
-        print(count)
+        # print(set(count))
+        # print(count)
 
         count2 = {value:key for key , value in count.items()}
         return len(count) == len(set(count2))
