@@ -1,5 +1,4 @@
 from collections import Counter
-import heapq
 class Solution:
     def findDuplicates(self, nums: List[int]) -> List[int]:
         c = Counter(nums)
