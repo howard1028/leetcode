@@ -1,28 +1,24 @@
 bool isValid(char* s) {
     char stack[10000];
-    int top = -1; // 每次要先加，所以top空從-1開始
+    int top = -1; // stack為空
 
-    for (int i=0 ; s[i]!='\0' ; i++){
-        char c = s[i];
-        // printf("%c" , c);
-        if (c == '(' || c == '[' || c == '{'){
-            stack[++top] = c;
+    for (int i=0; s[i]!='\0'; i++){
+        if (s[i] == '(' || s[i] == '[' || s[i] == '{'){
+            stack[++top] = s[i];
         }
         else{
-            if (top == -1) return false; // stack為空
-            
-            if ((c == ')' && stack[top] == '(') ||
-                (c == ']' && stack[top] == '[') ||
-                (c == '}' && stack[top] == '{')){
-                top --; // 不用pop，直接改變top指標就好
+            if (top == -1){
+                return false;
+            }
+            if ((s[i] == ')' && stack[top] == '(') ||
+                (s[i] == ']' && stack[top] == '[') ||
+                (s[i] == '}' && stack[top] == '{')){
+                    top --;
             }
             else{
                 return false;
             }
         }
     }
-    if (top == -1){
-        return true;
-    }
-    else return false;
+    return top == -1;
 }
